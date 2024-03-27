@@ -9,8 +9,21 @@ Proximus performs Approximate Nearest Neighbor(ANN) search to find relevant resu
 ## Prerequisites
 You don't have to know Aerospike to get started, but you do need the following:
 
-1. A Python 3.10 - 3.11 environment and familiarity with the Python programming language (see [Setup Python Virtual Environment](./prism-image-search/README.md#setup-python-virtual-environment)).
+1. A Python 3.10 - 3.11 environment and familiarity with the Python programming language (see [Setup Python Virtual Environment](https://docs.python.org/3/library/venv.html)).
 1. An Aerospike Vector Search host (sandbox or local).
+
+## Link your photos
+To index your local photos, create a symlink to a location with photos directory.
+
+```shell
+ln -s ~/Pictures prism/static/images/data
+```
+
+## Pip Install Dependencies
+```shell
+cd prism && \\
+python3 -m pip install -r requirements.txt --extra-index-url https://aerospike.jfrog.io/artifactory/api/pypi/aerospike-pypi-dev/simple 
+```
 
 ## Configure AVS (Proximus) host
 
@@ -19,12 +32,7 @@ If you are connecting to a trial sandbox, you'll need to set the following:
 export PROXIMUS_HOST=<SANDBOX_IP>
 ```
 
-## Link your photos
-To index your local photos, create a symlink to a location with photos directory.
 
-```shell
-ln -s ~/Pictures prism/static/images/data
-```
 ## Start the application
 
 ```shell
